@@ -98,7 +98,7 @@
 		title = #{title},
 		body = #{body},
 		boardId = #{boardId},
-		hit = '0',
+		hit = 0,
 		memberId = #{memberId}
 	</insert>
 	
