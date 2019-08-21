@@ -17,4 +17,9 @@ public class HomeController {
 	public String showMain2() {
 		return "home/main";
 	}
+	
+	@RequestMapping("/bus/selectSeat")
+	public String showPage() {
+		return "bus/selectSeat";
+	}
 }
