@@ -80,8 +80,16 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	public Article getOne(Map<String, Object> args) {
+		Article article = articleDao.getOne(args);
+		if ( args.get("loginedMemberId").equals(article.getMemberId()) ) {
+			
+			return article;
+		}
 		articleDao.addHit(args);
-		return articleDao.getOne(args);
+		
+		Article addHitArticle = articleDao.getOne(args);
+		
+		return addHitArticle;
 	}
 
 	public ArticleReply getReply(Map<String, Object> args) {
