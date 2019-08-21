@@ -55,7 +55,7 @@ public class ArticleController {
 		Board board = articleService.getBoard(boardId);
 
 		model.addAttribute("board", board);
-
+		
 		if (id == 0) {
 			model.addAttribute("alertMsg", "id를 정확히 입력해주세요.");
 			model.addAttribute("historyBack", true);

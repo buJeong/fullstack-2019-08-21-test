@@ -80,6 +80,7 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	public Article getOne(Map<String, Object> args) {
+		articleDao.addHit(args);
 		return articleDao.getOne(args);
 	}
 

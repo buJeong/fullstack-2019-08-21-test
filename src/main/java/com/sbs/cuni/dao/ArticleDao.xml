@@ -98,8 +98,17 @@
 		title = #{title},
 		body = #{body},
 		boardId = #{boardId},
+		hit = '0',
 		memberId = #{memberId}
 	</insert>
+	
+	<update id="addHit">
+		UPDATE article
+		<set>
+			hit = hit + 1,
+		</set>
+		WHERE id = #{id}
+	</update>
 
 	<insert id="addReply" useGeneratedKeys="true" keyProperty="id"
 		parameterType="map">
@@ -155,6 +164,7 @@
 		<id property="memberId" column="memberId" />
 		<id property="boardId" column="boardId" />
 		<id property="passwd" column="passwd" />
+		<id property="hit" column="hit" />
 		<association property="extra" javaType="java.util.HashMap">
 			<result property="repliesCount" column="extra__repliesCount" />
 			<result property="writerName" column="extra__writerName"/>
