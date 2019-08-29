@@ -5,9 +5,9 @@ custom:
   emailSenderName: CUNI Master
 mybatis:
   type-aliases-package: com.sbs.cuni.dto
-server:
-  port: 8083
 spring:
+  profiles:
+    active: local # 기본적으로 local이 선택된다는 뜻
   mvc:
     view:
       prefix: /WEB-INF/jsp/ 
@@ -34,3 +34,23 @@ spring:
           auth: true
           starttls:
             enable: true
+            
+---
+
+spring:
+  profiles: local
+server:
+  port: 8085
+
+---
+
+spring:
+  profiles: production
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/cuni?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: sbsst
+    password: sbs123414
+server:
+  port: 8087
+
